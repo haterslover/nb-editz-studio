@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NB Editz | Cinematic Video Editor</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{
+background: radial-gradient(circle at top right, #1a1f2e 0%, #0b0f1a 60%);
+color:#fff;
+position:relative;
+overflow-x:hidden;
+}
+body::before{
+content:"";
+position:absolute;
+width:700px;height:700px;
+background:rgba(255,122,47,0.12);
+filter:blur(180px);
+top:-250px;right:-250px;
+z-index:-1;
+}
+
+.container{width:90%;max-width:1200px;margin:auto;}
+
+/* NAV */
+header{
+position:fixed;width:100%;
+background:rgba(11,15,26,0.85);
+backdrop-filter:blur(10px);
+padding:20px 0;z-index:1000;
+border-bottom:1px solid #1a1f2e;
+}
+nav{display:flex;justify-content:space-between;align-items:center;}
+.logo{font-size:24px;font-weight:700;}
+nav ul{list-style:none;display:flex;gap:25px;}
+nav ul li a{text-decoration:none;color:#fff;transition:0.3s;}
+nav ul li a:hover{color:#ff7a2f;}
+
+/* HERO */
+#home{
+height:100vh;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+text-align:center;padding-top:100px;
+}
+#home h1{font-size:60px;margin-bottom:20px;}
+#home p{color:#aaa;font-size:18px;max-width:650px;}
+
+/* YOUTUBE PROFILE */
+.youtube-section{
+margin-top:40px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:15px;
+}
+.youtube-section img{
+width:120px;height:120px;
+border-radius:50%;
+border:3px solid #ff7a2f;
+}
+.youtube-section a{
+text-decoration:none;
+color:#ff7a2f;
+font-weight:600;
+}
+
+/* EXPLAINER VIDEO */
+.video-section{
+padding:120px 0;
+text-align:center;
+}
+.video-section iframe{
+width:100%;
+max-width:900px;
+height:500px;
+border-radius:20px;
+}
+
+/* ABOUT */
+#about{
+padding:80px 0;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+#about h2{font-size:42px;margin-bottom:20px;}
+#about p{color:#ccc;max-width:700px;line-height:1.7;}
+
+/* SERVICES */
+#services{
+padding:120px 0;
+text-align:center;
+}
+.wheel-container{
+display:flex;justify-content:center;
+flex-wrap:wrap;gap:40px;
+}
+.wheel{
+width:200px;height:200px;
+border-radius:50%;
+border:2px solid #ff7a2f;
+display:flex;align-items:center;justify-content:center;
+font-weight:600;transition:0.4s;
+}
+.wheel:hover{
+background:#ff7a2f;color:#000;
+transform:translateY(-12px);
+}
+
+/* CONTACT */
+#contact{padding:120px 0;text-align:center;}
+.contact-box{
+background:rgba(17,24,39,0.8);
+padding:50px;border-radius:20px;
+max-width:800px;margin:auto;
+border:1px solid #1f2937;
+}
+.social-links{
+display:flex;justify-content:center;
+flex-wrap:wrap;gap:15px;margin-bottom:25px;
+}
+.social-links a{
+text-decoration:none;color:#fff;
+border:1px solid #ff7a2f;
+padding:10px 18px;border-radius:30px;
+transition:0.3s;font-size:14px;
+}
+.social-links a:hover{
+background:#ff7a2f;color:#000;
+}
+.contact-info{color:#aaa;line-height:1.6;}
+
+footer{
+padding:30px 0;text-align:center;
+border-top:1px solid #1f2937;color:#666;
+}
+
+@media(max-width:768px){
+#home h1{font-size:40px;}
+.video-section iframe{height:250px;}
+}
+</style>
+</head>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+},{ threshold: 0.2 });
+
+document.querySelectorAll('.timeline-item').forEach(item => {
+observer.observe(item);
+});
+</script>
+
+<script>
+const slider = document.getElementById('slider');
+const afterImage = document.querySelector('.after');
+
+slider.addEventListener('input', function(){
+afterImage.style.width = slider.value + "%";
+});
+</script>
+
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+<div class="logo">NB Editz</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Me</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section id="about" class="container about-section">
+
+<div class="about-image">
+<img src="C:\Users\NAGESH\Pictures-profile.png" alt="NB Editz">
+</div>
+
+<div class="about-text">
+<h2>I Create Visual Impact</h2>
+<p>I am NB Editz, a professional video editor specializing in cinematic storytelling, high-retention YouTube edits, professional color grading in DaVinci Resolve, and modern motion graphics.</p>
+
+<p>My mission is to transform raw footage into emotionally engaging, visually powerful content that strengthens brand identity and increases audience retention.</p>
+</div>
+
+</section>
+
+<section class="video-section container">
+<h2>Explainer Video</h2>
+<br>
+<iframe src="coming soon" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section id="about" class="container">
+<h2>I Create Visual Impact</h2>
+<p>Specialized in cinematic storytelling, professional color grading in DaVinci Resolve Studio, and motion graphics that increase viewer retention and strengthen brand authority.</p>
+</section>
+
+
+
+<h2>Before & After Color Grading</h2>
+
+
+<div class="compare-container">
+<div class="img-wrapper">
+<img src="BEFORE_IMAGE_LINK" class="before">
+<img src="AFTER_IMAGE_LINK" class="after">
+</div>
+<input type="range" min="0" max="100" value="50" class="slider" id="slider">
+</div>
+
+
+<section id="bestwork" class="bestwork container">
+
+<h2>Best Work</h2>
+<p class="section-subtitle">
+Featured cinematic projects showcasing editing, motion graphics and color grading.
+</p>
+
+<div class="work-grid">
+
+<div class="work-card" onclick="openVideo('http s://www.youtube.com/embed/YOUR_VIDEO_1_ID')">
+<div class="play-overlay">▶</div>
+<h3>Cinematic Short Film</h3>
+</div>
+
+<div class="work-card" onclick="openVideo('http s://www.youtube.com/embed/YOUR_VIDEO_2_ID')">
+<div class="play-overlay">▶</div>
+<h3>YouTube High-Retention Edit</h3>
+</div>
+
+<div class="work-card" onclick="openVideo('http s://www.youtube.com/embed/YOUR_VIDEO_3_ID')">
+<div class="play-overlay">▶</div>
+<h3>Color Grading Showcase</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="passion" class="passion container">
+
+<h2>Passion Projects</h2>
+<p class="section-subtitle">
+Real creativity. Pure storytelling. Projects built from passion, not briefs.
+</p>
+
+<div class="passion-grid">
+
+<div class="passion-card" onclick="openVideo('https://www.youtube.com/embed/YOUR_PASSION_VIDEO_1')">
+<div class="passion-overlay">
+<h3>Experimental Cinematic Short</h3>
+<p>Moody lighting · Emotional pacing · Advanced color grading</p>
+</div>
+</div>
+
+<div class="passion-card" onclick="openVideo('https://www.youtube.com/embed/YOUR_PASSION_VIDEO_2')">
+<div class="passion-overlay">
+<h3>Creative Motion Edit</h3>
+<p>Dynamic transitions · Sound design · Story rhythm</p>
+</div>
+</div>
+
+<div class="passion-card" onclick="openVideo('https://www.youtube.com/embed/YOUR_PASSION_VIDEO_3')">
+<div class="passion-overlay">
+<h3>Visual Story Concept</h3>
+<p>Concept-driven visuals · Cinematic atmosphere</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="experience" class="experience container">
+    <h1> 5+ Experience in video editing</h1>
+
+    <section id="grading" class="grading container">
+
+</section>
+
+<h2>Experience & Growth</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-year">2025 - 2026</div>
+<div class="timeline-content">
+<h3>DaVinci Resolve Studio · After Effects</h3>
+<p>Advanced color grading, cinematic edits, motion graphics, professional YouTube and brand projects.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-year">2024 – 2025</div>
+<div class="timeline-content">
+<h3>CapCut · Alight Motion</h3>
+<p>Reels editing, transitions, short-form content, social media growth projects.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-year">2023 – 2024</div>
+<div class="timeline-content">
+<h3>VN · CapCut</h3>
+<p>Learning storytelling basics, editing structure, early client and personal projects.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-year">2022 – 2023</div>
+<div class="timeline-content">
+<h3>KineMaster · Vita · VN</h3>
+<p>Started editing journey, basic cuts, transitions, creative experiments and practice projects.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="services" class="container">
+<h2>Core Expertise</h2>
+<br><br>
+<div class="wheel-container">
+<div class="wheel">DaVinci Resolve Studio</div>
+<div class="wheel">Video Editing</div>
+<div class="wheel">Color Grading</div>
+<div class="wheel">Motion Graphics</div>
+<div class="wheel">Thumbnail Design</div>
+</div>
+</section>
+
+
+<section id="testimonials" class="testimonials container">
+
+<h2>Client Feedback</h2>
+<p class="section-subtitle">
+What clients say about working with me.
+</p>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>
+“Exceptional editing quality. The pacing, color grading and storytelling
+completely transformed our content.”
+</p>
+<h4>— Content Creator</h4>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>
+“Professional, fast delivery, and strong creative direction.
+Highly recommended for YouTube and brand projects.”
+</p>
+<h4>— Brand Owner</h4>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>
+“Understands retention strategy and cinematic visuals.
+Our audience engagement improved significantly.”
+</p>
+<h4>— Digital Marketer</h4>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="contact" class="container">
+<div class="contact-box">
+<h2>Connect With Me</h2>
+
+<div class="social-links">
+<a href="https://youtube.com/@nbeditzxesports" target="_blank">YouTube</a>
+<a href="https://t.me/nb_editz_studio" target="_blank">Telegram</a>
+<a href="https://whatsapp.com/channel/0029VbCjNKBBvvsdYXSkGt46" target="_blank">WhatsApp Channel</a>
+<a href="https://x.com/BikkadNagesh" target="_blank">X</a>
+<a href="https://www.linkedin.com/in/nagesh-bikkad-6b10a1322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+<a href="https://www.tiktok.com/@nb_editz_16?_r=1&_t=ZP-94Li3oE7DeI" target="_blank">TikTok</a>
+<a href="https://www.instagram.com/nb_editz_16?igsh=OThjNDhmd2JwN3Jn" target="_blank">Instagram</a>
+</div>
+
+<div class="contact-info">
+<p>Email: nbeditzxesport@gmail.com</p>
+<p>WhatsApp: +919405872293</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 NB Editz. All Rights Reserved.</p>
+</footer>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="video-modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeVideo()">✕</span>
+<iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+
+<script>
+function openVideo(videoUrl){
+document.getElementById("videoModal").style.display = "flex";
+document.getElementById("videoFrame").src = videoUrl + "?autoplay=1";
+}
+
+function closeVideo(){
+document.getElementById("videoModal").style.display = "none";
+document.getElementById("videoFrame").src = "";
+}
+</script>
+</body>
+</html>
