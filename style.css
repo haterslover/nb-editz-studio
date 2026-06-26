@@ -76,3 +76,84 @@ transform:translateY(0px);
 }
 
 }
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:50px;
+}
+
+.section-title p{
+color:#aaa;
+}
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.project{
+position:relative;
+overflow:hidden;
+border-radius:20px;
+cursor:pointer;
+}
+
+.project img{
+width:100%;
+display:block;
+transition:.6s;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.95),transparent);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:30px;
+opacity:0;
+transition:.5s;
+}
+
+.project:hover img{
+transform:scale(1.12);
+}
+
+.project:hover .overlay{
+opacity:1;
+}
+
+.overlay h3{
+font-size:30px;
+}
+
+.overlay p{
+margin:10px 0;
+color:#ddd;
+}
+
+.overlay a{
+display:inline-block;
+margin-top:15px;
+padding:12px 22px;
+background:#00bfff;
+color:black;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+section{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
