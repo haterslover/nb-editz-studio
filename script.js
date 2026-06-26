@@ -60,3 +60,71 @@ entry.target.classList.add("show");
 document.querySelectorAll("section").forEach(sec=>{
 observer.observe(sec);
 });
+window.addEventListener("scroll",()=>{
+
+const total=document.documentElement.scrollHeight-window.innerHeight;
+
+const progress=(window.pageYOffset/total)*100;
+
+document.getElementById("progress").style.width=progress+"%";
+
+});
+const cursor=document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+
+});
+cursor.style.top=
+window.addEventListener("scroll",()=>{
+
+const total=document.documentElement.scrollHeight-window.innerHeight;
+
+const progress=(window.pageYOffset/total)*100;
+
+document.getElementById("progress").style.width=progress+"%";
+
+});
+// Animated Counters
+
+document.querySelectorAll(".counter").forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.dataset.target;
+
+const count=+counter.innerText;
+
+const speed=20;
+
+const inc=Math.ceil(target/speed);
+
+if(count<target){
+
+counter.innerText=count+inc;
+
+setTimeout(update,40);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+}
+
+update();
+
+});
+
+// Theme Toggle
+
+const theme=document.getElementById("themeToggle");
+
+theme.onclick=()=>{
+
+document.body.classList.toggle("light");
+
+};
